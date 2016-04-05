@@ -1,0 +1,15 @@
+{
+  "name": "gamecart-com",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://phabricator-vcs@git.dev.raycordlegends.com:229/diffusion/8/gamecart-com.git"
+  },
+  "author": "GameCart",
+  "license": "ISC"
+}
