@@ -15,6 +15,10 @@ task :get_deps do
   sh "npm install"
 end
 
+task :docker do
+  sh "docker-compose up"
+end
+
 task :deploy, %w[build] do
   sh "surge"
 end
