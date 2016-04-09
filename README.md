@@ -1,5 +1,4 @@
-To build:
+To run:
 ```sh
-rake get_deps
-rake
+rake docker
 ```

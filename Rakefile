@@ -6,7 +6,7 @@ task :build do
   sh "gulp build"
 end
 
-task :debug do
+task :watch do
   sh "gulp watch"
 end
 

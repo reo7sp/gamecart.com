@@ -20,18 +20,34 @@ const postcssProcessors = [
 const babelOptions = {
   presets: ["es2015"]
 };
+const serverOptions = {
+  livereload: true,
+  directoryListing: true
+}
 
 const blocksCssFiles = "blocks/**/*.css";
+const generalCssFiles = "css/**/*.css";
+const jsMainFile = "js/index.js";
+const jsFiles = "js/**/*.js";
 const htmlFiles = ["index.html"];
 const destDir = "bin";
-const jsMainFile = "js/index.js";
 
 gulp.task("default", ["build"]);
 
 gulp.task("build", ["blocks", "js", "html"]);
 
+gulp.task("watch", () => {
+  gulp.watch([blocksCssFiles, generalCssFiles], ["blocks"]);
+  gulp.watch(jsFiles, ["js"]);
+  gulp.watch(htmlFiles, ["html"]);
+
+  return gulp.src(destDir)
+    .pipe(p.serverLivereload(serverOpts));
+});
+
 gulp.task("blocks", () => {
   let baseStream = gulp.src(blocksCssFiles)
+    .pipe(p.plumber())
     .pipe(p.cached("blocks"))
     .pipe(p.postcss(postcssProcessors))
     .pipe(p.remember("blocks"))
@@ -50,6 +66,7 @@ gulp.task("blocks", () => {
 
 gulp.task("js", () => {
   return gulp.src(jsMainFile)
+    .pipe(p.plumber())
     .pipe(p.sourcemaps.init())
     .pipe(p.babel(babelOptions))
     .pipe(p.sourcemaps.write("."))
@@ -58,6 +75,7 @@ gulp.task("js", () => {
 
 gulp.task("html", () => {
   return gulp.src(htmlFiles)
+    .pipe(p.plumber())
     .pipe(p.cached("html"))
     .pipe(p.nunjucks.compile())
     .pipe(p.remember("html"))
