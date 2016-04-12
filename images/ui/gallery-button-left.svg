@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32.003208mm"
+   height="64.00602mm"
+   viewBox="0 0 113.39719 226.79298"
+   id="svg8125"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="gallery-button-left.svg">
+  <defs
+     id="defs8127" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="255.98431"
+     inkscape:cy="116.25363"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     inkscape:window-x="1494"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata8130">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-69.01569,-421.82286)">
+    <path
+       id="path4210"
+       d="m 69.01569,421.82286 a 113.39684,113.39684 0 0 1 98.205,56.69923 113.39684,113.39684 0 0 1 0,113.39647 113.39684,113.39684 0 0 1 -98.205,56.69727 l 0,-113.39649 0,-113.39648 z m 64.7636,68.63477 -44.7617,44.76171 44.7617,44.76172 22.3809,-22.38086 -22.3809,-22.38086 22.3809,-22.38085 -22.3809,-22.38086 z"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:0.14117647;fill-rule:nonzero;stroke:none;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#ffffff;fill-opacity:1"
+       d="M 42.603336,135.73346 20.55192,113.55195 42.796038,91.438298 65.040156,69.324643 75.662073,80.202473 86.28399,91.080304 74.835261,102.25969 l -11.448728,11.17938 11.45492,11.67172 11.45492,11.67171 -10.820812,10.56624 -10.820808,10.56623 -22.051417,-22.18151 z"
+       id="path8688"
+       inkscape:connector-curvature="0"
+       transform="translate(69.015686,421.82286)" />
+  </g>
+</svg>

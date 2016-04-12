@@ -1,0 +1,18 @@
+@import "../css/helpers.scss";
+
+.pagination-dots {
+  margin: 16px;
+
+  &__dot {
+    display: inline-block;
+    margin: 0 3px;
+
+    &--active&--purple {
+      @mixin widget-background "ui/dot-filled--purple.svg", 32px;
+    }
+
+    &--inactive&--purple {
+      @mixin widget-background "ui/dot-unfilled--purple.svg", 32px;
+    }
+  }
+}

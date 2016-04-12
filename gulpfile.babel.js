@@ -9,6 +9,7 @@ import glob from "glob";
 import scss from "postcss-scss";
 import postcssImport from "postcss-import";
 import precss from "precss";
+import postcssAssets from "postcss-assets";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import oldie from "oldie";
@@ -26,8 +27,11 @@ const destDir = "bin";
 const postcssProcessors = [
   postcssImport(),
   precss(),
-  autoprefixer(),
-  cssnano()
+  //postcssAssets({
+    //loadPaths: ["images/"]
+  //}),
+  //autoprefixer(),
+  //cssnano()
 ];
 const babelOptions = {
   presets: ["es2015"]
@@ -63,7 +67,7 @@ gulp.task("watch", ["build"], () => {
   gulp.watch(htmlFiles, ["html"]);
   gulp.watch(imageFiles, ["images"]);
 
-  p.connect.server(serverOptions);
+  return p.connect.server(serverOptions);
 });
 
 gulp.task("css", () => {
@@ -71,16 +75,19 @@ gulp.task("css", () => {
 
   let baseStream = gulp.src(cssMainFile)
     .pipe(p.plumber(plumberOptions))
+    .pipe(p.sourcemaps.init())
     .pipe(p.postcss(postcssProcessors, {syntax: scss}));
 
   let normalCss = baseStream
     .pipe(p.rename("style.css"))
+    .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
     .pipe(p.connect.reload());
 
   let ieCss = baseStream
     .pipe(p.postcss([oldie()]))
     .pipe(p.rename("style.oldie.css"))
+    .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
     .pipe(p.connect.reload());
 
@@ -90,8 +97,8 @@ gulp.task("css", () => {
 gulp.task("js", () => {
   return gulp.src(jsMainFile)
     .pipe(p.plumber())
-    .pipe(p.rename("app.js"))
     .pipe(p.sourcemaps.init())
+    .pipe(p.rename("app.js"))
     .pipe(p.babel(babelOptions))
     .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
