@@ -11,12 +11,17 @@ task :watch do
 end
 
 task :get_deps do
-  sh "npm install --global gulp-cli"
+  sh "sudo npm install --global gulp-cli"
   sh "npm install"
 end
 
 task :docker do
   sh "docker-compose up"
+end
+
+task :docker_rebuild do
+  sh "docker-compose rm --force || true"
+  sh "docker-compose build"
 end
 
 task :deploy, %w[build] do

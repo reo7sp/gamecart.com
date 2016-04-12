@@ -7,5 +7,5 @@ WORKDIR /app
 COPY . .
 RUN rake get_deps
 
-EXPOSE 8000 35729
+EXPOSE 8080 35729
 CMD ["rake", "watch"]

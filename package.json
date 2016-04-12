@@ -10,27 +10,37 @@
     "type": "git",
     "url": "ssh://phabricator-vcs@git.dev.raycordlegends.com:229/diffusion/8/gamecart-com.git"
   },
+  "private": true,
   "author": "GameCart",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.6",
+    "babel-polyfill": "^6.7.4",
     "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.7.2",
     "cssnano": "^3.5.2",
+    "es6-promise": "^3.1.2",
     "event-stream": "^3.3.2",
+    "glob": "^7.0.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-cached": "^1.1.0",
-    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^3.2.2",
+    "gulp-htmlmin": "^1.3.0",
     "gulp-load-plugins": "^1.2.0",
     "gulp-nunjucks": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.0",
-    "gulp-remember": "^0.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-server-livereload": "^1.7.3",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
     "oldie": "^1.3.0",
-    "precss": "^1.4.0",
-    "stylelint": "^5.3.0"
+    "postcss-import": "^8.1.0",
+    "postcss-scss": "^0.1.7",
+    "precss": "^1.4.0"
+  },
+  "dependencies": {
+    "normalize.css": "^4.1.1"
   }
 }
