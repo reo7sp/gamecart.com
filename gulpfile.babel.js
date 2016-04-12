@@ -6,33 +6,27 @@ import gutil from "gulp-util";
 import { merge } from "event-stream";
 import glob from "glob";
 
-import scss from "postcss-scss";
-import postcssImport from "postcss-import";
-import precss from "precss";
-import postcssAssets from "postcss-assets";
-import autoprefixer from "autoprefixer";
-import cssnano from "cssnano";
-import oldie from "oldie";
-
 const p = gulpPluginLoader();
 
-const cssFiles = ["css/**/*.scss", "blocks/**/*.scss"];
-const cssMainFile = "css/index.scss";
+import LessNpmImport from "less-plugin-npm-import";
+import LessAutoprefix from "less-plugin-autoprefix";
+import LessPluginCleanCSS from "less-plugin-clean-css";
+
+const cssFiles = ["css/**/*.less", "blocks/**/*.less"];
+const cssMainFile = "css/index.less";
 const jsMainFile = "js/index.js";
 const jsFiles = "js/**/*.js";
 const htmlFiles = ["index.html"];
 const imageFiles = "images/**/*";
 const destDir = "bin";
 
-const postcssProcessors = [
-  postcssImport(),
-  precss(),
-  //postcssAssets({
-    //loadPaths: ["images/"]
-  //}),
-  //autoprefixer(),
-  //cssnano()
-];
+const lessOptions = {
+  plugins: [
+    new LessNpmImport(),
+    new LessAutoprefix(),
+    new LessPluginCleanCSS()
+  ]
+};
 const babelOptions = {
   presets: ["es2015"]
 };
@@ -52,9 +46,9 @@ const plumberOptions = {
 };
 
 function generateBlocksCss() {
-  let files = glob.sync("blocks/**/*.scss");
+  let files = glob.sync("blocks/**/*.less");
   let txt = files.map(file => `@import "../${file}";`).join("\n");
-  fs.writeFileSync("css/blocks.scss", txt);
+  fs.writeFileSync("css/blocks.less", txt);
 }
 
 gulp.task("default", ["build"]);
@@ -73,25 +67,14 @@ gulp.task("watch", ["build"], () => {
 gulp.task("css", () => {
   generateBlocksCss();
 
-  let baseStream = gulp.src(cssMainFile)
+  return gulp.src(cssMainFile)
     .pipe(p.plumber(plumberOptions))
     .pipe(p.sourcemaps.init())
-    .pipe(p.postcss(postcssProcessors, {syntax: scss}));
-
-  let normalCss = baseStream
+    .pipe(p.less(lessOptions))
     .pipe(p.rename("style.css"))
     .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
     .pipe(p.connect.reload());
-
-  let ieCss = baseStream
-    .pipe(p.postcss([oldie()]))
-    .pipe(p.rename("style.oldie.css"))
-    .pipe(p.sourcemaps.write("."))
-    .pipe(gulp.dest(destDir))
-    .pipe(p.connect.reload());
-
-  return merge(normalCss, ieCss);
 });
 
 gulp.task("js", () => {

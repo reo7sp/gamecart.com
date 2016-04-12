@@ -1,4 +1,4 @@
-@import "../css/helpers.scss";
+@import (reference) "../css/helpers.less";
 
 .gallery {
   position: relative;
@@ -22,16 +22,16 @@
     &--left {
       position: absolute;
       top: 50%;
-      @mixin widget-background "ui/gallery-button-left.svg", 32px;
-      margin-top: -calc(@height / 2);
+      .widget-background("ui/gallery-button-left.svg", 32px);
+      margin-top: (-.scaled-image-height-from-width(32px) / 2);
     }
 
     &--right {
       position: absolute;
       top: 50%;
       right: 0;
-      @mixin widget-background "ui/gallery-button-right.svg", 32px;
-      margin-top: -calc(@height / 2);
+      .widget-background("ui/gallery-button-right.svg", 32px);
+      margin-top: (-.scaled-image-height-from-width(32px) / 2);
     }
   }
 

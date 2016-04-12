@@ -1,4 +1,4 @@
 bin
 node_modules
 npm-debug.log
-css/blocks.scss
+css/blocks.less

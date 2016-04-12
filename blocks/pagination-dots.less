@@ -1,4 +1,4 @@
-@import "../css/helpers.scss";
+@import "../css/helpers.less";
 
 .pagination-dots {
   margin: 16px;
@@ -8,11 +8,11 @@
     margin: 0 3px;
 
     &--active&--purple {
-      @mixin widget-background "ui/dot-filled--purple.svg", 32px;
+      .widget-background("ui/dot-filled--purple.svg", 32px);
     }
 
     &--inactive&--purple {
-      @mixin widget-background "ui/dot-unfilled--purple.svg", 32px;
+      .widget-background("ui/dot-unfilled--purple.svg", 32px);
     }
   }
 }

@@ -1,7 +1,0 @@
-@define-mixin widget-background $image, $width {
-  background-image: resolve($image);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: $width;
-  height: calc(@width * (height($image) / width($image)));
-}
