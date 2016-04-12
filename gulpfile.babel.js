@@ -8,24 +8,16 @@ import glob from "glob";
 
 const p = gulpPluginLoader();
 
-import LessNpmImport from "less-plugin-npm-import";
-import LessAutoprefix from "less-plugin-autoprefix";
-import LessPluginCleanCSS from "less-plugin-clean-css";
-
+const cssMainFile = "css/index.styl";
 const cssFiles = ["css/**/*.less", "blocks/**/*.less"];
-const cssMainFile = "css/index.less";
-const jsMainFile = "js/index.js";
 const jsFiles = "js/**/*.js";
+const jsMainFile = "js/index.js";
 const htmlFiles = ["index.html"];
 const imageFiles = "images/**/*";
 const destDir = "bin";
 
-const lessOptions = {
-  plugins: [
-    new LessNpmImport(),
-    new LessAutoprefix(),
-    new LessPluginCleanCSS()
-  ]
+const stylusOptions = {
+  compress: true
 };
 const babelOptions = {
   presets: ["es2015"]
@@ -45,11 +37,6 @@ const plumberOptions = {
   }
 };
 
-function generateBlocksCss() {
-  let files = glob.sync("blocks/**/*.less");
-  let txt = files.map(file => `@import "../${file}";`).join("\n");
-  fs.writeFileSync("css/blocks.less", txt);
-}
 
 gulp.task("default", ["build"]);
 
@@ -65,13 +52,13 @@ gulp.task("watch", ["build"], () => {
 });
 
 gulp.task("css", () => {
-  generateBlocksCss();
-
   return gulp.src(cssMainFile)
     .pipe(p.plumber(plumberOptions))
     .pipe(p.sourcemaps.init())
-    .pipe(p.less(lessOptions))
+    .pipe(p.stylus(stylusOptions))
     .pipe(p.rename("style.css"))
+    .pipe(p.autoprefixer())
+    .pipe(p.cssnano())
     .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
     .pipe(p.connect.reload());

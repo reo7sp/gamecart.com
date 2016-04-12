@@ -1,0 +1,10 @@
+widget-background(image, width)
+  background-image: image
+  background-repeat: no-repeat
+  background-size: contain
+  width: width
+  height: width / aspect-ration(image)
+
+aspect-ratio(image)
+  size = image-size(image)
+  size[0] / size[1]
