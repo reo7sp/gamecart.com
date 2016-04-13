@@ -1,5 +1,8 @@
 import gulp from "gulp";
 import gulpPluginLoader from "gulp-load-plugins";
+import browserify from "browserify";
+import source from "vinyl-source-stream";
+import buffer from "vinyl-buffer";
 
 import fs from "fs";
 import gutil from "gulp-util";
@@ -66,11 +69,14 @@ gulp.task("css", () => {
 });
 
 gulp.task("js", () => {
-  return gulp.src(jsMainFile)
-    .pipe(p.plumber())
-    .pipe(p.sourcemaps.init())
-    .pipe(p.rename("app.js"))
-    .pipe(p.babel(babelOptions))
+  return browserify(jsMainFile)
+    .transform("babelify", babelOptions)
+    .bundle()
+    .pipe(p.plumber(plumberOptions))
+    .pipe(source("app.js"))
+    .pipe(buffer())
+    .pipe(p.sourcemaps.init({loadMaps: true}))
+    .pipe(p.uglify())
     .pipe(p.sourcemaps.write("."))
     .pipe(gulp.dest(destDir))
     .pipe(p.connect.reload());
@@ -78,7 +84,7 @@ gulp.task("js", () => {
 
 gulp.task("html", () => {
   return gulp.src(htmlFiles)
-    .pipe(p.plumber())
+    .pipe(p.plumber(plumberOptions))
     .pipe(p.nunjucks.compile())
     .pipe(p.htmlmin())
     .pipe(gulp.dest(destDir))

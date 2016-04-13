@@ -11,7 +11,7 @@ task :watch do
 end
 
 task :get_deps do
-  sh "sudo npm install --global gulp-cli"
+  sh "sudo npm install --global gulp-cli surge"
   sh "npm install"
 end
 
@@ -25,7 +25,9 @@ task :docker_rebuild do
 end
 
 task :deploy, %w[build] do
-  sh "surge"
+  Dir.chdir("bin") do
+    sh "surge --domain gamecart-com.surge.sh"
+  end
 end
 
 task :clean do

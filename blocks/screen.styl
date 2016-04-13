@@ -5,11 +5,14 @@
   height: 100vh
 
   &__scroll-button
+    cursor: pointer
+
     button(direction)
       position: absolute
       left: 50%
       widget-background("ui/scroll-button-" + direction + ".svg", screen-scroll-button-width)
       margin-left: (-@width / 2)
+      z-index: 99
 
     &--up
       button(up)

@@ -24,7 +24,7 @@
         </a>
       </div>
       <div class="cover cover--full-height-with-topbar">
-        <div class="cover__top-menu pagination-dots">
+        <div class="cover__top-menu pagination-dots" data-paginable="#cover-gallery">
           <div class="pagination-dots__dot pagination-dots__dot--purple pagination-dots__dot--active">
           </div>
           <div class="pagination-dots__dot pagination-dots__dot--purple pagination-dots__dot--inactive">
@@ -36,10 +36,12 @@
           <div class="pagination-dots__dot pagination-dots__dot--purple pagination-dots__dot--inactive">
           </div>
         </div>
-        <div class="cover__back gallery gallery--full-width-and-height">
+        <div class="cover__back gallery gallery--full-width-and-height" id="cover-gallery">
           <img class="gallery__photo gallery__photo--active" src="http://placekitten.com/600/400">
           <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/800/400">
           <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/900/400">
+          <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/900/401">
+          <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/900/402">
           <div class="gallery__scroll-button gallery__scroll-button--left">
           </div>
           <div class="gallery__scroll-button gallery__scroll-button--right">
@@ -66,9 +68,9 @@
               button 4
             </div>
           </div>
-          <div class="screen__scroll-button screen__scroll-button--down">
-          </div>
         </div>
+      </div>
+      <div class="screen__scroll-button screen__scroll-button--down">
       </div>
     </div>
     <div class="screen screen--purple">
@@ -84,16 +86,17 @@
           <p>text</p>
         </div>
         <div class="description-screen__half description-screen__half--centerify">
-          <div class="gallery gallery--circle gallery--full-width" style="max-width: 384px">
+          <div class="gallery gallery--circle gallery--medium" id="description-gallery">
             <img class="gallery__photo gallery__photo--active" src="http://placekitten.com/200/200">
             <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/200/100">
             <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/100/200">
+            <img class="gallery__photo gallery__photo--inactive" src="http://placekitten.com/100/201">
             <div class="gallery__scroll-button gallery__scroll-button--left">
             </div>
             <div class="gallery__scroll-button gallery__scroll-button--right">
             </div>
           </div>
-          <div class="pagination-dots pagination-dots--white">
+          <div class="pagination-dots pagination-dots--white" data-paginable="#description-gallery">
             <div class="pagination-dots__dot pagination-dots__dot--white pagination-dots__dot--active">
             </div>
             <div class="pagination-dots__dot pagination-dots__dot--white pagination-dots__dot--inactive">
