@@ -5,19 +5,20 @@
   height: 100vh
 
   &__scroll-button
-    &--up
+    button(direction)
       position: absolute
-      top: 0
       left: 50%
-      widget-background("ui/scroll-button-up.svg", 64px)
+      widget-background("ui/scroll-button-" + direction + ".svg", screen-scroll-button-width)
       margin-left: (-@width / 2)
 
+    &--up
+      button(up)
+      top: 0
+
     &--down
-      position: absolute
+      button(down)
       bottom: 0
-      left: 50%
-      widget-background("ui/scroll-button-down.svg", 64px)
-      margin-left: (-@width / 2)
 
   &--purple
     background-color: main-color
+    color: white

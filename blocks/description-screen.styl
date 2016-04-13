@@ -1,0 +1,19 @@
+@require "../css/sizes.styl"
+
+.description-screen
+  display: flex
+  padding: 128px 64px
+
+  &__scroll-bar
+    position: absolute
+    left: (@padding[1] / 2 - scroll-bar-width / 2)
+    top: unquote("calc(50% - " + (scroll-bar-height / 2) + ")")
+
+  &__half
+    width: 50%
+
+    &--centerify
+      display: flex
+      align-items: center;
+      justify-content: center;
+      flex-direction: column

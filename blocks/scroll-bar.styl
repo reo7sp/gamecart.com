@@ -1,0 +1,15 @@
+@require "../css/sizes.styl"
+
+.scroll-bar
+  width: scroll-bar-width
+  height: scroll-bar-height
+  background-color: white
+  border-radius: 4px
+
+  &__content
+    width: @width
+    background-color: invert(@background-color)
+    border-radius: @border-radius
+
+    &--half
+      height: (@height / 2)

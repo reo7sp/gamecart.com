@@ -1,15 +1,17 @@
 @require "../css/sizes.styl"
 
 .cover
-  &__top-menu
+  overlay()
     position: absolute
-    right: 0
     z-index: 99
 
+  &__top-menu
+    overlay()
+    right: 0
+
   &__panel
-    position: absolute
+    overlay()
     bottom: 0
-    z-index: 99
 
   &--full-height
     height: 100%
