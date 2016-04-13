@@ -1,16 +1,17 @@
-@require "../css/colors.less"
+@require "../css/colors.styl"
+@require "../css/sizes.styl"
 
 .topbar
   display: flex
-  height: 32px
+  height: topbar-height
 
-  &__item {
+  &__item
     flex-grow: 1
-    height: 32px
+    height: topbar-height
     padding: 8px
     color: white
     text-align: center
     text-decoration: none
 
   &--purple
-    background-color: mainColor
+    background-color: main-color

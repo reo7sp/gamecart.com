@@ -1,4 +1,5 @@
-@require "../css/helpers.less"
+@require "../css/helpers.styl"
+@require "../css/sizes.styl"
 
 .pagination-dots
   margin: 16px
@@ -8,7 +9,7 @@
     margin: 0 3px
 
     &--active&--purple
-      .widget-background("ui/dot-filled--purple.svg", 32px)
+      widget-background("ui/dot-filled--purple.svg", pagination-dot-width)
 
     &--inactive&--purple
-      .widget-background("ui/dot-unfilled--purple.svg", 32px)
+      widget-background("ui/dot-unfilled--purple.svg", pagination-dot-width)

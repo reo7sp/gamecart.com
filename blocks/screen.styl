@@ -1,2 +1,23 @@
+@require "../css/colors.styl"
+
 .screen
+  position: relative
   height: 100vh
+
+  &__scroll-button
+    &--up
+      position: absolute
+      top: 0
+      left: 50%
+      widget-background("ui/scroll-button-up.svg", 64px)
+      margin-left: (-@width / 2)
+
+    &--down
+      position: absolute
+      bottom: 0
+      left: 50%
+      widget-background("ui/scroll-button-down.svg", 64px)
+      margin-left: (-@width / 2)
+
+  &--purple
+    background-color: main-color

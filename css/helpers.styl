@@ -1,10 +1,10 @@
 widget-background(image, width)
-  background-image: image
+  background-image: url("/images/" + image)
   background-repeat: no-repeat
   background-size: contain
   width: width
-  height: width / aspect-ration(image)
+  height: (width / aspect-ratio(image))
 
 aspect-ratio(image)
-  size = image-size(image)
+  size = image-size("../images/" + image)
   size[0] / size[1]

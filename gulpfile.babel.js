@@ -9,7 +9,7 @@ import glob from "glob";
 const p = gulpPluginLoader();
 
 const cssMainFile = "css/index.styl";
-const cssFiles = ["css/**/*.less", "blocks/**/*.less"];
+const cssFiles = ["css/**/*.styl", "blocks/**/*.styl"];
 const jsFiles = "js/**/*.js";
 const jsMainFile = "js/index.js";
 const htmlFiles = ["index.html"];
@@ -17,7 +17,8 @@ const imageFiles = "images/**/*";
 const destDir = "bin";
 
 const stylusOptions = {
-  compress: true
+  compress: true,
+  "include css": true
 };
 const babelOptions = {
   presets: ["es2015"]
